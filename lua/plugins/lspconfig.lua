@@ -44,6 +44,7 @@ return {
             vim.lsp.enable("html")
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("sqlls")
+            vim.lsp.enable("jsonls")
 
             -- Configure gopls with Go-specific settings
             vim.lsp.config("gopls", {

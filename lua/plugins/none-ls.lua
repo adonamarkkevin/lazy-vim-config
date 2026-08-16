@@ -7,6 +7,23 @@ return {
         local null_ls = require("null-ls")
         local h = require("null-ls.helpers")
 
+        -- Custom golines formatter for Go (wraps lines to 80 chars)
+        local golines = h.make_builtin({
+            name = "golines",
+            meta = {
+                url = "https://github.com/segmentio/golines",
+                description = "Go formatter that shortens long lines",
+            },
+            method = null_ls.methods.FORMATTING,
+            filetypes = { "go" },
+            generator_opts = {
+                command = "golines",
+                args = { "-m", "80", "--base-formatter", "gofumpt" },
+                to_stdin = true,
+            },
+            factory = h.formatter_factory,
+        })
+
         -- Custom mbake formatter for Makefiles
         local mbake = h.make_builtin({
             name = "mbake",
@@ -35,6 +52,7 @@ return {
                 -- Go formatters
                 null_ls.builtins.formatting.goimports,
                 null_ls.builtins.formatting.gofumpt,
+                golines,
                 -- Go linters (golangci-lint includes staticcheck, stylecheck, simple, and 50+ others)
                 null_ls.builtins.diagnostics.golangci_lint,
                 null_ls.builtins.code_actions.gomodifytags,

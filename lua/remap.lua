@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 -- save using ctrl + s
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 
--- save using ctrl + s
+-- go to previous buffer
 vim.api.nvim_set_keymap("n", "<leader>h", ":buffer #<CR>", { noremap = true, silent = true })
 
 -- toggle relative line numbers

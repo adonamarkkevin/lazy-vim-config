@@ -54,7 +54,7 @@ return {
 
             -- Code generation
             keymap("n", "<leader>gfs", "<cmd>GoFillStruct<cr>", vim.tbl_extend("force", opts, { desc = "Fill struct" }))
-            keymap("n", "<leader>gfs", "<cmd>GoFillSwitch<cr>", vim.tbl_extend("force", opts, { desc = "Fill switch" }))
+            keymap("n", "<leader>gfw", "<cmd>GoFillSwitch<cr>", vim.tbl_extend("force", opts, { desc = "Fill switch" }))
             keymap("n", "<leader>gif", "<cmd>GoIfErr<cr>", vim.tbl_extend("force", opts, { desc = "Generate if err" }))
 
             -- Struct tags

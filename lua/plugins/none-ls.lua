@@ -68,6 +68,11 @@ return {
             group = augroup,
             pattern = "*",
             callback = function(args)
+                -- Skip special / read-only buffers (Mason, checkhealth, help, etc.)
+                if not vim.bo[args.buf].modifiable or vim.bo[args.buf].buftype ~= "" then
+                    return
+                end
+
                 -- Save the view to preserve cursor position
                 local view = vim.fn.winsaveview()
 

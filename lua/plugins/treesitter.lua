@@ -21,6 +21,7 @@ return {
                 "javascript",
                 "graphql",
                 "sql",
+                "svelte",
             }
 
             require("nvim-treesitter").install(parsers)
@@ -38,6 +39,7 @@ return {
                 "javascript",
                 "graphql",
                 "sql",
+                "svelte",
             }
 
             vim.api.nvim_create_autocmd("FileType", {

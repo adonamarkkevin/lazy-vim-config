@@ -8,9 +8,18 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
+        dependencies = { "williamboman/mason.nvim" },
         lazy = false,
         opts = {
-            auto_install = true,
+            ensure_installed = {
+                "ts_ls",
+                "gopls",
+                "html",
+                "lua_ls",
+                "sqlls",
+                "jsonls",
+                "svelte",
+            },
         },
     },
     {
@@ -45,6 +54,7 @@ return {
             vim.lsp.enable("lua_ls")
             vim.lsp.enable("sqlls")
             vim.lsp.enable("jsonls")
+            vim.lsp.enable("svelte")
 
             -- Configure gopls with Go-specific settings
             vim.lsp.config("gopls", {

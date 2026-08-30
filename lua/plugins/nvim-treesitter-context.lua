@@ -10,11 +10,11 @@ return {
             separator = "─",
         })
 
-        vim.api.nvim_create_autocmd("FileType", {
-            pattern = "markdown",
-            callback = function()
-                require("treesitter-context").disable()
-            end,
-        })
+        -- vim.api.nvim_create_autocmd("FileType", {
+        --     pattern = "markdown",
+        --     callback = function()
+        --         require("treesitter-context").disable()
+        --     end,
+        -- })
     end,
 }

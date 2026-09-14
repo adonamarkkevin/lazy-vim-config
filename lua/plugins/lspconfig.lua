@@ -48,6 +48,15 @@ return {
                 capabilities = capabilities,
             })
 
+            -- onedark has no @lsp.type.* highlight links, so ts_ls semantic
+            -- tokens paint grey over treesitter; disable semantic tokens for it
+            vim.lsp.config("ts_ls", {
+                capabilities = capabilities,
+                on_init = function(client)
+                    client.server_capabilities.semanticTokensProvider = nil
+                end,
+            })
+
             -- Enable LSP servers (uses defaults from nvim-lspconfig)
             vim.lsp.enable("ts_ls")
             vim.lsp.enable("html")
